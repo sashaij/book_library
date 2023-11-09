@@ -44,6 +44,26 @@ books.push(b);
 console.log(books);
 }
 
+function formatValue() {    //function which defines which chbox itm checked
+    let ele = document.getElementsByName('format'); //same for status
+
+    for (let i = 0; i < ele.length; i++) {
+        if (ele[i].checked){
+            format = ele[i].value;
+        }
+    }
+}
+
+function statusValue() {
+    let ele = document.getElementsByName('status');
+
+    for (let i = 0; i < ele.length; i++) {
+        if (ele[i].checked){
+            readStatusVal = ele[i].value;
+        }
+    }
+}
+
 const toZero = function () { //empty all input fields
     bAuthor.value = '';
     bTitle.value = '';
