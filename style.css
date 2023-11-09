@@ -32,10 +32,15 @@ the right
 
 
 
-@media (min-width: 900px) {
-    div#library-table {
-        width: 95%;
-        height: auto;
+@media (min-width: 1045px) {
+    div.cards-container {
+        grid-template-columns: repeat(auto-fit, minmax(700px, 100%));
+        grid-template-rows: repeat(auto-fit, minmax(90px, 1fr));
+    }
+
+    div.card {
+        grid-template-rows: 100%;
+        grid-template-columns: repeat(10, 1fr);
     }
 }
 
@@ -146,6 +151,7 @@ legend {
     justify-items: center;
 }
 
+
 .keys,
 .values {
     text-align:  center;
@@ -156,8 +162,13 @@ legend {
     color: var(--keys);
 }
 
+
 .info-cont {
-    padding: 5px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
 }
 
 #submit-button {
