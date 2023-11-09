@@ -31,6 +31,7 @@ this.originalLang = originalLang;
 this.bookFormat = bookFormat;
 this.pagesNum = pagesNum;
 this.status = status;
+
 }
 
 let addBook = function (title, author, 
@@ -166,12 +167,25 @@ const formCard = function(){
         divGenreValue.innerHTML = book.genre;
         divCountryValue.innerHTML = book.country;
         divLangValue.innerHTML = book.originalLang;
-        divPagesValue.innerHTML = book.pages;
-        divStatusValue.innerHTML = book.format;
-        divFormatValue.innerHTML = book.status;
+        divPagesValue.innerHTML = book.pagesNum;
+        divStatusValue.innerHTML = book.status;
+        divFormatValue.innerHTML = book.bookFormat;
     }
 
+    /*
+                tdAuthor.textContent = book.author;
+            tdTitle.textContent = book.title;
+            tdYear.textContent = book.year;
+            tdGenre.textContent = book.genre;
+            tdCountry.textContent = book.country;
+            tdOriginalLang.textContent = book.originalLang;
+            tdNumPages.textContent = book.pagesNum;
+            tdFormat.textContent = book.bookFormat;
+            tdStatus.textContent = book.status; 
+     */
+
     cardsContainer.appendChild(divCard);
+
     divCard.appendChild(divInfoContTitle);
     divCard.appendChild(divInfoContAuth);
     divCard.appendChild(divInfoContYear);
@@ -207,8 +221,8 @@ const formCard = function(){
 
 buttonSubmit.addEventListener('click', function(e){
     e.preventDefault();
-    //formatValue();
-    //statusValue();
+    formatValue();
+    statusValue();
     addBook(bTitle.value, bAuthor.value, 
             bYear.value, bGenre.value, 
             bCountry.value, bOriginalLang.value, 
