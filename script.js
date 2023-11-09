@@ -1,5 +1,13 @@
 'use strict'
 
+//tasks
+
+//implement status toggle
+//implement delete button
+//and confirm popup
+
+//try to implement local storage
+
 const bAuthor = document.getElementById('author');
 const bTitle = document.getElementById('title');
 const bYear = document.getElementById('year');
