@@ -13,6 +13,11 @@ const buttonSubmit = document.getElementById('submit-button');
 const togFormat = document.getElementsByName('format');
 const togStatus = document.getElementsByName('status');
 
+let books = []; //array that contain book objects
+let format = ''; 
+let readStatusVal = '';
+let newBook; 
+
 function Book (title, author, year, 
     genre, country, originalLang, 
     pagesNum, bookFormat, status) {
