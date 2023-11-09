@@ -4,7 +4,33 @@
     --light: #F2EAD3;
     --dark: #DFD7BF;
     --button-highlight: #F1EFEF;
+    --keys: #2966a8;
 }
+
+/*
+-- general --
+
+- implement grid form above 
+book cards in mobile-first
+- in fullscreen it goes form
+as sidebar and cards(stripes[zebra])
+as main content on the right; 
+
+-- cards --
+MOBILE
+-implemented as a card
+info displayed in a column
+-status button and and
+delete button at the bottom 
+- implemented as a stripe
+info displayed as a row
+status and delete button on 
+the right
+-
+
+ */
+
+
 
 @media (min-width: 900px) {
     div#library-table {
@@ -84,12 +110,54 @@ legend {
     text-align: left;
 }
 
-#library-table {
+
+
+/* #library-table {
     width: 540px;
     height: auto;
     overflow: auto;
     display: flex;
     justify-content: center;
+}
+ */
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    width: calc(100% - 1rem);
+}
+
+/* projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
+    grid-column: 1 / 1;
+    grid-row: 2 / span 2;
+    gap: 20px;
+    padding-left: 20px; */
+
+.card {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(10, 1fr);
+    background-color: var(--light);
+    justify-items: center;
+}
+
+.keys,
+.values {
+    text-align:  center;
+    font-size: 1.2rem;
+}
+
+.keys {
+    color: var(--keys);
+}
+
+.info-cont {
+    padding: 5px 0;
 }
 
 #submit-button {
