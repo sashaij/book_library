@@ -12,6 +12,7 @@ const readStatus = document.getElementById('status');
 const buttonSubmit = document.getElementById('submit-button');
 const togFormat = document.getElementsByName('format');
 const togStatus = document.getElementsByName('status');
+const cardsContainer = document.querySelector('.cards-container');
 
 let books = []; //array that contain book objects
 let format = ''; 
@@ -31,6 +32,42 @@ this.bookFormat = bookFormat;
 this.pagesNum = pagesNum;
 this.status = status;
 }
+
+let addBook = function (title, author, 
+    year, genre, 
+    country, originalLang, 
+    pagesNum, bookFormat, 
+    status) {
+let b = new Book (title, author, year, genre, 
+ country, originalLang, pagesNum, bookFormat, status);
+books.push(b);
+console.log(books);
+}
+
+const toZero = function () { //empty all input fields
+    bAuthor.value = '';
+    bTitle.value = '';
+    bYear.value = null;
+    bGenre.value = '';
+    bCountry.value = '';
+    bOriginalLang.value = '';
+    numberOfPages.value = null;
+    togFormat[0].checked = true;
+    togStatus[0].checked = true;
+}
+
+buttonSubmit.addEventListener('click', function(e){
+    e.preventDefault();
+    //formatValue();
+    //statusValue();
+    addBook(bTitle.value, bAuthor.value, 
+            bYear.value, bGenre.value, 
+            bCountry.value, bOriginalLang.value, 
+            numberOfPages.value, format, 
+            readStatusVal);
+    //formTable();
+    toZero();
+}) 
 
 
 
