@@ -22,7 +22,30 @@ const togFormat = document.getElementsByName('format');
 const togStatus = document.getElementsByName('status');
 const cardsContainer = document.querySelector('.cards-container');
 
-let books = []; //array that contain book objects
+let books = [
+    {
+        title: "War And Peace",
+        author: "Leo Tolstoy",
+        year: "1893",
+        genre: "Novel",
+        country: "Russian Empire",
+        originalLang: "Russian",
+        bookFormat: "Paper",
+        pagesNum: 234,
+        status: "Read",
+    },
+    {
+        title: "Anna Karenina",
+        author: "Leo Tolstoy",
+        year: "1888",
+        genre: "Novel",
+        country: "Russian Empire",
+        originalLang: "Russian",
+        bookFormat: "Ebook",
+        pagesNum: 234,
+        status: "Haven't Read Yet",
+    }
+]; //array that contain book objects
 let format = ''; 
 let readStatusVal = '';
 let newBook; 
@@ -86,10 +109,11 @@ const toZero = function () { //empty all input fields
 }
 
 const formCard = function(){
+    for(let book of books){            
     //card
     const divCard = document.createElement('div');
     divCard.setAttribute('class', 'card');
-
+    
     //col containers 
     const divInfoContTitle = document.createElement('div');
     divInfoContTitle.setAttribute('class', 'info-cont title-cont');
@@ -168,7 +192,6 @@ const formCard = function(){
     divDeleteKey.innerHTML = 'Delete';
 
 
-    for(let book of books){            
         divTitleValue.innerHTML = book.title;   
         divAuthorValue.innerHTML = book.author;
         divYearValue.innerHTML = book.year;
@@ -178,19 +201,7 @@ const formCard = function(){
         divPagesValue.innerHTML = book.pagesNum;
         divStatusValue.innerHTML = book.status;
         divFormatValue.innerHTML = book.bookFormat;
-    }
-
-    /*
-                tdAuthor.textContent = book.author;
-            tdTitle.textContent = book.title;
-            tdYear.textContent = book.year;
-            tdGenre.textContent = book.genre;
-            tdCountry.textContent = book.country;
-            tdOriginalLang.textContent = book.originalLang;
-            tdNumPages.textContent = book.pagesNum;
-            tdFormat.textContent = book.bookFormat;
-            tdStatus.textContent = book.status; 
-     */
+    
 
     cardsContainer.appendChild(divCard);
 
@@ -225,7 +236,12 @@ const formCard = function(){
     divInfoContPages.appendChild(divPagesValue);
     divInfoContFormat.appendChild(divFormatValue);
     divInfoContStatus.appendChild(divStatusValue);
+    }
 }
+
+
+formCard();
+
 
 buttonSubmit.addEventListener('click', function(e){
     e.preventDefault();
