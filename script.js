@@ -3,8 +3,19 @@
 //tasks
 
 //implement status toggle
+   //update status in existing 
+   //object in array
+   //render cards again;
 //implement delete button
+    //remove item from array 
+    //render cards again;
 //and confirm popup
+
+//after book is passed to the
+//array need to get index and
+//add it as a property
+//update the property of -each object-
+//after -any- book is being deleted
 
 //try to implement local storage
 
@@ -73,6 +84,7 @@ let addBook = function (title, author,
 let b = new Book (title, author, year, genre, 
  country, originalLang, pagesNum, bookFormat, status);
 books.push(b);
+
 console.log(books);
 }
 
@@ -97,7 +109,7 @@ function statusValue() {
 }
 
 const toZero = function () { //empty all input fields
-    bAuthor.value = '';
+    bAuthor.value = '';      //set radio to first opt
     bTitle.value = '';
     bYear.value = null;
     bGenre.value = '';
@@ -109,8 +121,8 @@ const toZero = function () { //empty all input fields
 }
 
 const formCard = function(){
-    for(let book of books){            
-    //card
+    for(let book of books){    //loops through books
+    //card                     //array to render cards
     const divCard = document.createElement('div');
     divCard.setAttribute('class', 'card');
     
@@ -191,18 +203,16 @@ const formCard = function(){
     divFormatKey.innerHTML = 'Format';
     divDeleteKey.innerHTML = 'Delete';
 
-
-        divTitleValue.innerHTML = book.title;   
-        divAuthorValue.innerHTML = book.author;
-        divYearValue.innerHTML = book.year;
-        divGenreValue.innerHTML = book.genre;
-        divCountryValue.innerHTML = book.country;
-        divLangValue.innerHTML = book.originalLang;
-        divPagesValue.innerHTML = book.pagesNum;
-        divStatusValue.innerHTML = book.status;
-        divFormatValue.innerHTML = book.bookFormat;
+    divTitleValue.innerHTML = book.title;   
+    divAuthorValue.innerHTML = book.author;
+    divYearValue.innerHTML = book.year;
+    divGenreValue.innerHTML = book.genre;
+    divCountryValue.innerHTML = book.country;
+    divLangValue.innerHTML = book.originalLang;
+    divPagesValue.innerHTML = book.pagesNum;
+    divStatusValue.innerHTML = book.status;
+    divFormatValue.innerHTML = book.bookFormat;
     
-
     cardsContainer.appendChild(divCard);
 
     divCard.appendChild(divInfoContTitle);
@@ -240,7 +250,8 @@ const formCard = function(){
 }
 
 
-formCard();
+formCard(); //call to form all the books
+            //existing at the moment
 
 
 buttonSubmit.addEventListener('click', function(e){
