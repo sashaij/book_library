@@ -63,7 +63,7 @@ let newBook;
 
 function Book (title, author, year, 
     genre, country, originalLang, 
-    pagesNum, bookFormat, status) {
+    pagesNum, bookFormat, status, arrIndex) {
 this.title = title;
 this.author = author;
 this.year = year;
@@ -73,19 +73,22 @@ this.originalLang = originalLang;
 this.bookFormat = bookFormat;
 this.pagesNum = pagesNum;
 this.status = status;
-
+this.arrIndex = arrIndex;
 }
 
 let addBook = function (title, author, 
     year, genre, 
     country, originalLang, 
     pagesNum, bookFormat, 
-    status) {
-let b = new Book (title, author, year, genre, 
- country, originalLang, pagesNum, bookFormat, status);
-books.push(b);
-
-console.log(books);
+    status, arrIndex) {
+    let b = new Book (title, author, year, genre, 
+    country, originalLang, pagesNum, bookFormat, status, arrIndex);
+    books.push(b);
+    console.log(books);
+    console.log(books[books.length - 1]);
+    for (let i = 0; i < books.length; i++) {
+        books[i].arrIndex = i;           //assign or update index for every
+    }                                           //book in books array
 }
 
 function formatValue() {    //function which defines which chbox itm checked
@@ -125,7 +128,9 @@ const formCard = function(){
     //card                     //array to render cards
     const divCard = document.createElement('div');
     divCard.setAttribute('class', 'card');
-    
+    divCard.setAttribute('data-index-number', `${book.arrIndex}`); //asign index for dom
+                                                                   //that corresponds index for item
+                                                                   //in array    
     //col containers 
     const divInfoContTitle = document.createElement('div');
     divInfoContTitle.setAttribute('class', 'info-cont title-cont');
