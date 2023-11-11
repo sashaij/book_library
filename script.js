@@ -150,6 +150,145 @@ const toZero = function () { //empty all input fields
     togStatus[0].checked = true;
 }
 
+///////////////
+ const formOtherCards = function () {
+    for(let book of books){   
+        const divCard = document.createElement('div');
+        divCard.setAttribute('class', 'card');
+    
+        //col containers 
+        const divInfoContTitle = document.createElement('div');
+        divInfoContTitle.setAttribute('class', 'info-cont title-cont');
+        const divInfoContAuth = document.createElement('div');
+        divInfoContAuth.setAttribute('class', 'info-cont auth-cont');
+        const divInfoContYear = document.createElement('div');
+        divInfoContYear.setAttribute('class', 'info-cont year-cont');
+        const divInfoContGenre = document.createElement('div');
+        divInfoContGenre.setAttribute('class', 'info-cont genre-cont');
+        const divInfoContCountry = document.createElement('div');
+        divInfoContCountry.setAttribute('class', 'info-cont country-cont');
+        const divInfoContLang = document.createElement('div');
+        divInfoContLang.setAttribute('class', 'info-cont lang-cont');
+        const divInfoContPages = document.createElement('div');
+        divInfoContPages.setAttribute('class', 'info-cont pages-cont');
+        const divInfoContStatus = document.createElement('div');
+        divInfoContStatus.setAttribute('class', 'info-cont status-cont');
+        const divInfoContFormat= document.createElement('div');
+        divInfoContFormat.setAttribute('class', 'info-cont format-cont');
+        const divInfoContDelete = document.createElement('div');
+        divInfoContDelete.setAttribute('class', 'info-cont delete-cont');
+    
+        //titles
+        const divTitleKey = document.createElement('div');
+        divTitleKey.setAttribute('class', 'keys title-key');
+        const divAuthorKey = document.createElement('div');
+        divAuthorKey.setAttribute('class', 'keys author-key');
+        const divYearKey = document.createElement('div');
+        divYearKey.setAttribute('class', 'keys year-key');
+        const divGenreKey = document.createElement('div');
+        divGenreKey.setAttribute('class', 'keys genre-key');
+        const divCountryKey = document.createElement('div');
+        divCountryKey.setAttribute('class', 'keys country-key');
+        const divLangKey = document.createElement('div');
+        divLangKey.setAttribute('class', 'keys lang-key');
+        const divPagesKey = document.createElement('div');
+        divPagesKey.setAttribute('class', 'keys pages-key');
+        const divStatusKey = document.createElement('div');
+        divStatusKey.setAttribute('class', 'keys status-key');
+        const divFormatKey = document.createElement('div');
+        divFormatKey.setAttribute('class', 'keys format-key');
+        const divDeleteKey = document.createElement('button');
+        divDeleteKey.setAttribute('class', 'delete-button');
+    
+        //values
+        const divTitleValue = document.createElement('div');
+        divTitleValue.setAttribute('class', 'values title-value');
+        const divAuthorValue = document.createElement('div');
+        divAuthorValue.setAttribute('class', 'values author-value');
+        const divYearValue = document.createElement('div');
+        divYearValue.setAttribute('class', 'values year-value');
+        const divGenreValue = document.createElement('div');
+        divGenreValue.setAttribute('class', 'values genre--value');
+        const divCountryValue = document.createElement('div');
+        divCountryValue.setAttribute('class', 'values country-value');
+        const divLangValue = document.createElement('div');
+        divLangValue.setAttribute('class', 'values lang-value');
+        const divPagesValue = document.createElement('div');
+        divPagesValue.setAttribute('class', 'values pages-value');
+        const divStatusValue = document.createElement('div');
+        divStatusValue.setAttribute('class', 'values status-value');
+        const divFormatValue = document.createElement('div');
+        divFormatValue.setAttribute('class', 'values format-value');
+        //const divDeleteValue = document.createElement('div');
+        //divDeleteValue.setAttribute('class', 'values delete-value');
+    
+        
+        //loops through books
+        //card                     //array to render cards
+        divCard.setAttribute('data-index-number', `${book.arrIndex}`); //asign index for dom
+                                                                    //that corresponds index for item
+                                                                    //in array    
+
+        divTitleKey.innerHTML = 'Title';
+        divAuthorKey.innerHTML = 'Author';
+        divYearKey.innerHTML = 'Year';
+        divGenreKey.innerHTML = 'Genre';
+        divCountryKey.innerHTML = 'Country';
+        divLangKey.innerHTML = 'Original Language';
+        divPagesKey.innerHTML = 'Number Of Pages';
+        divStatusKey.innerHTML = 'Status';
+        divFormatKey.innerHTML = 'Format';
+        divDeleteKey.innerHTML = 'Delete';
+
+        divTitleValue.innerHTML = book.title;   
+        divAuthorValue.innerHTML = book.author;
+        divYearValue.innerHTML = book.year;
+        divGenreValue.innerHTML = book.genre;
+        divCountryValue.innerHTML = book.country;
+        divLangValue.innerHTML = book.originalLang;
+        divPagesValue.innerHTML = book.pagesNum;
+        divStatusValue.innerHTML = book.status;
+        divFormatValue.innerHTML = book.bookFormat;
+        
+        cardsContainer.appendChild(divCard);
+
+        divCard.appendChild(divInfoContTitle);
+        divCard.appendChild(divInfoContAuth);
+        divCard.appendChild(divInfoContYear);
+        divCard.appendChild(divInfoContGenre);
+        divCard.appendChild(divInfoContCountry);
+        divCard.appendChild(divInfoContLang);
+        divCard.appendChild(divInfoContPages);
+        divCard.appendChild(divInfoContFormat);
+        divCard.appendChild(divInfoContStatus);
+        divCard.appendChild(divInfoContDelete);
+
+        divInfoContTitle.appendChild(divTitleKey);
+        divInfoContAuth.appendChild(divAuthorKey);
+        divInfoContYear.appendChild(divYearKey);
+        divInfoContGenre.appendChild(divGenreKey);
+        divInfoContCountry.appendChild(divCountryKey);
+        divInfoContLang.appendChild(divLangKey);
+        divInfoContPages.appendChild(divPagesKey);
+        divInfoContFormat.appendChild(divFormatKey);
+        divInfoContStatus.appendChild(divStatusKey);
+        divInfoContDelete.appendChild(divDeleteKey);
+
+        divInfoContTitle.appendChild(divTitleValue);
+        divInfoContAuth.appendChild(divAuthorValue);
+        divInfoContYear.appendChild(divYearValue);
+        divInfoContGenre.appendChild(divGenreValue);
+        divInfoContCountry.appendChild(divCountryValue);
+        divInfoContLang.appendChild(divLangValue);
+        divInfoContPages.appendChild(divPagesValue);
+        divInfoContFormat.appendChild(divFormatValue);
+        divInfoContStatus.appendChild(divStatusValue);
+     }
+ }
+///////////////
+
+formOtherCards();
+
 const formCard = function(){
     const divCard = document.createElement('div');
     divCard.setAttribute('class', 'card');
