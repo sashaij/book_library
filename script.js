@@ -290,7 +290,20 @@ const toZero = function () { //empty all input fields
         divInfoContStatus.appendChild(divStatusValue);
      }
  }
-///////////////
+/////////////////
+
+//-------status-tog---------//
+
+const toggleStatus = function(e) {
+    const btn = e.target;
+    const elem = btn.closest('div.status-value');
+    if (elem.innerHTML == 'Read') {
+        elem.innerHTML = "Haven't read yet"
+    } else if (elem.innerHTML == "Haven't read yet") {
+        elem.innerHTML = "Read"
+    }
+}
+//---------status-tog--------//
 
 
 //------del------//
