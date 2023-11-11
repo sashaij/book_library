@@ -151,13 +151,9 @@ const toZero = function () { //empty all input fields
 }
 
 const formCard = function(){
-    for(let book of books){    //loops through books
-    //card                     //array to render cards
     const divCard = document.createElement('div');
     divCard.setAttribute('class', 'card');
-    divCard.setAttribute('data-index-number', `${book.arrIndex}`); //asign index for dom
-                                                                   //that corresponds index for item
-                                                                   //in array    
+
     //col containers 
     const divInfoContTitle = document.createElement('div');
     divInfoContTitle.setAttribute('class', 'info-cont title-cont');
@@ -224,61 +220,67 @@ const formCard = function(){
     //const divDeleteValue = document.createElement('div');
     //divDeleteValue.setAttribute('class', 'values delete-value');
 
-    divTitleKey.innerHTML = 'Title';
-    divAuthorKey.innerHTML = 'Author';
-    divYearKey.innerHTML = 'Year';
-    divGenreKey.innerHTML = 'Genre';
-    divCountryKey.innerHTML = 'Country';
-    divLangKey.innerHTML = 'Original Language';
-    divPagesKey.innerHTML = 'Number Of Pages';
-    divStatusKey.innerHTML = 'Status';
-    divFormatKey.innerHTML = 'Format';
-    divDeleteKey.innerHTML = 'Delete';
+    for(let book of books){    //loops through books
+        //card                     //array to render cards
+        divCard.setAttribute('data-index-number', `${book.arrIndex}`); //asign index for dom
+                                                                    //that corresponds index for item
+                                                                    //in array    
 
-    divTitleValue.innerHTML = book.title;   
-    divAuthorValue.innerHTML = book.author;
-    divYearValue.innerHTML = book.year;
-    divGenreValue.innerHTML = book.genre;
-    divCountryValue.innerHTML = book.country;
-    divLangValue.innerHTML = book.originalLang;
-    divPagesValue.innerHTML = book.pagesNum;
-    divStatusValue.innerHTML = book.status;
-    divFormatValue.innerHTML = book.bookFormat;
-    
-    cardsContainer.appendChild(divCard);
+        divTitleKey.innerHTML = 'Title';
+        divAuthorKey.innerHTML = 'Author';
+        divYearKey.innerHTML = 'Year';
+        divGenreKey.innerHTML = 'Genre';
+        divCountryKey.innerHTML = 'Country';
+        divLangKey.innerHTML = 'Original Language';
+        divPagesKey.innerHTML = 'Number Of Pages';
+        divStatusKey.innerHTML = 'Status';
+        divFormatKey.innerHTML = 'Format';
+        divDeleteKey.innerHTML = 'Delete';
 
-    divCard.appendChild(divInfoContTitle);
-    divCard.appendChild(divInfoContAuth);
-    divCard.appendChild(divInfoContYear);
-    divCard.appendChild(divInfoContGenre);
-    divCard.appendChild(divInfoContCountry);
-    divCard.appendChild(divInfoContLang);
-    divCard.appendChild(divInfoContPages);
-    divCard.appendChild(divInfoContFormat);
-    divCard.appendChild(divInfoContStatus);
-    divCard.appendChild(divInfoContDelete);
+        divTitleValue.innerHTML = book.title;   
+        divAuthorValue.innerHTML = book.author;
+        divYearValue.innerHTML = book.year;
+        divGenreValue.innerHTML = book.genre;
+        divCountryValue.innerHTML = book.country;
+        divLangValue.innerHTML = book.originalLang;
+        divPagesValue.innerHTML = book.pagesNum;
+        divStatusValue.innerHTML = book.status;
+        divFormatValue.innerHTML = book.bookFormat;
+        
+        cardsContainer.appendChild(divCard);
 
-    divInfoContTitle.appendChild(divTitleKey);
-    divInfoContAuth.appendChild(divAuthorKey);
-    divInfoContYear.appendChild(divYearKey);
-    divInfoContGenre.appendChild(divGenreKey);
-    divInfoContCountry.appendChild(divCountryKey);
-    divInfoContLang.appendChild(divLangKey);
-    divInfoContPages.appendChild(divPagesKey);
-    divInfoContFormat.appendChild(divFormatKey);
-    divInfoContStatus.appendChild(divStatusKey);
-    divInfoContDelete.appendChild(divDeleteKey);
+        divCard.appendChild(divInfoContTitle);
+        divCard.appendChild(divInfoContAuth);
+        divCard.appendChild(divInfoContYear);
+        divCard.appendChild(divInfoContGenre);
+        divCard.appendChild(divInfoContCountry);
+        divCard.appendChild(divInfoContLang);
+        divCard.appendChild(divInfoContPages);
+        divCard.appendChild(divInfoContFormat);
+        divCard.appendChild(divInfoContStatus);
+        divCard.appendChild(divInfoContDelete);
 
-    divInfoContTitle.appendChild(divTitleValue);
-    divInfoContAuth.appendChild(divAuthorValue);
-    divInfoContYear.appendChild(divYearValue);
-    divInfoContGenre.appendChild(divGenreValue);
-    divInfoContCountry.appendChild(divCountryValue);
-    divInfoContLang.appendChild(divLangValue);
-    divInfoContPages.appendChild(divPagesValue);
-    divInfoContFormat.appendChild(divFormatValue);
-    divInfoContStatus.appendChild(divStatusValue);
-    }
+        divInfoContTitle.appendChild(divTitleKey);
+        divInfoContAuth.appendChild(divAuthorKey);
+        divInfoContYear.appendChild(divYearKey);
+        divInfoContGenre.appendChild(divGenreKey);
+        divInfoContCountry.appendChild(divCountryKey);
+        divInfoContLang.appendChild(divLangKey);
+        divInfoContPages.appendChild(divPagesKey);
+        divInfoContFormat.appendChild(divFormatKey);
+        divInfoContStatus.appendChild(divStatusKey);
+        divInfoContDelete.appendChild(divDeleteKey);
+
+        divInfoContTitle.appendChild(divTitleValue);
+        divInfoContAuth.appendChild(divAuthorValue);
+        divInfoContYear.appendChild(divYearValue);
+        divInfoContGenre.appendChild(divGenreValue);
+        divInfoContCountry.appendChild(divCountryValue);
+        divInfoContLang.appendChild(divLangValue);
+        divInfoContPages.appendChild(divPagesValue);
+        divInfoContFormat.appendChild(divFormatValue);
+        divInfoContStatus.appendChild(divStatusValue);
+     }
 }
 
 
