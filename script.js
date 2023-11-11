@@ -113,9 +113,7 @@ let addBook = function (title, author,
     books.push(b);
     console.log(books);
     console.log(books[books.length - 1]);
-    for (let i = 0; i < books.length; i++) {
-        books[i].arrIndex = i;           //assign or update index for every
-    }                                           //book in books array
+    setIndex();
 }
 
 function formatValue() {    //function which defines which chbox itm checked
@@ -138,6 +136,12 @@ function statusValue() {
     }
 }
 
+const setIndex = function () {
+    for (let i = 0; i < books.length; i++) {
+        books[i].arrIndex = i;           //assign or update index for every
+    }                                           //book in books array
+}
+
 const toZero = function () { //empty all input fields
     bAuthor.value = '';      //set radio to first opt
     bTitle.value = '';
@@ -151,80 +155,80 @@ const toZero = function () { //empty all input fields
 }
 
 ///////////////
- const formOtherCards = function () {
+ const formOtherCards = function () {  
     for(let book of books){   
-        const divCard = document.createElement('div');
-        divCard.setAttribute('class', 'card');
-    
-        //col containers 
-        const divInfoContTitle = document.createElement('div');
-        divInfoContTitle.setAttribute('class', 'info-cont title-cont');
-        const divInfoContAuth = document.createElement('div');
-        divInfoContAuth.setAttribute('class', 'info-cont auth-cont');
-        const divInfoContYear = document.createElement('div');
-        divInfoContYear.setAttribute('class', 'info-cont year-cont');
-        const divInfoContGenre = document.createElement('div');
-        divInfoContGenre.setAttribute('class', 'info-cont genre-cont');
-        const divInfoContCountry = document.createElement('div');
-        divInfoContCountry.setAttribute('class', 'info-cont country-cont');
-        const divInfoContLang = document.createElement('div');
-        divInfoContLang.setAttribute('class', 'info-cont lang-cont');
-        const divInfoContPages = document.createElement('div');
-        divInfoContPages.setAttribute('class', 'info-cont pages-cont');
-        const divInfoContStatus = document.createElement('div');
-        divInfoContStatus.setAttribute('class', 'info-cont status-cont');
-        const divInfoContFormat= document.createElement('div');
-        divInfoContFormat.setAttribute('class', 'info-cont format-cont');
-        const divInfoContDelete = document.createElement('div');
-        divInfoContDelete.setAttribute('class', 'info-cont delete-cont');
-    
-        //titles
-        const divTitleKey = document.createElement('div');
-        divTitleKey.setAttribute('class', 'keys title-key');
-        const divAuthorKey = document.createElement('div');
-        divAuthorKey.setAttribute('class', 'keys author-key');
-        const divYearKey = document.createElement('div');
-        divYearKey.setAttribute('class', 'keys year-key');
-        const divGenreKey = document.createElement('div');
-        divGenreKey.setAttribute('class', 'keys genre-key');
-        const divCountryKey = document.createElement('div');
-        divCountryKey.setAttribute('class', 'keys country-key');
-        const divLangKey = document.createElement('div');
-        divLangKey.setAttribute('class', 'keys lang-key');
-        const divPagesKey = document.createElement('div');
-        divPagesKey.setAttribute('class', 'keys pages-key');
-        const divStatusKey = document.createElement('div');
-        divStatusKey.setAttribute('class', 'keys status-key');
-        const divFormatKey = document.createElement('div');
-        divFormatKey.setAttribute('class', 'keys format-key');
-        const divDeleteKey = document.createElement('button');
-        divDeleteKey.setAttribute('class', 'delete-button');
-    
-        //values
-        const divTitleValue = document.createElement('div');
-        divTitleValue.setAttribute('class', 'values title-value');
-        const divAuthorValue = document.createElement('div');
-        divAuthorValue.setAttribute('class', 'values author-value');
-        const divYearValue = document.createElement('div');
-        divYearValue.setAttribute('class', 'values year-value');
-        const divGenreValue = document.createElement('div');
-        divGenreValue.setAttribute('class', 'values genre--value');
-        const divCountryValue = document.createElement('div');
-        divCountryValue.setAttribute('class', 'values country-value');
-        const divLangValue = document.createElement('div');
-        divLangValue.setAttribute('class', 'values lang-value');
-        const divPagesValue = document.createElement('div');
-        divPagesValue.setAttribute('class', 'values pages-value');
-        const divStatusValue = document.createElement('div');
-        divStatusValue.setAttribute('class', 'values status-value');
-        const divFormatValue = document.createElement('div');
-        divFormatValue.setAttribute('class', 'values format-value');
-        //const divDeleteValue = document.createElement('div');
-        //divDeleteValue.setAttribute('class', 'values delete-value');
-    
+            const divCard = document.createElement('div');
+            divCard.setAttribute('class', 'card');
         
-        //loops through books
-        //card                     //array to render cards
+            //col containers 
+            const divInfoContTitle = document.createElement('div');
+            divInfoContTitle.setAttribute('class', 'info-cont title-cont');
+            const divInfoContAuth = document.createElement('div');
+            divInfoContAuth.setAttribute('class', 'info-cont auth-cont');
+            const divInfoContYear = document.createElement('div');
+            divInfoContYear.setAttribute('class', 'info-cont year-cont');
+            const divInfoContGenre = document.createElement('div');
+            divInfoContGenre.setAttribute('class', 'info-cont genre-cont');
+            const divInfoContCountry = document.createElement('div');
+            divInfoContCountry.setAttribute('class', 'info-cont country-cont');
+            const divInfoContLang = document.createElement('div');
+            divInfoContLang.setAttribute('class', 'info-cont lang-cont');
+            const divInfoContPages = document.createElement('div');
+            divInfoContPages.setAttribute('class', 'info-cont pages-cont');
+            const divInfoContStatus = document.createElement('div');
+            divInfoContStatus.setAttribute('class', 'info-cont status-cont');
+            const divInfoContFormat= document.createElement('div');
+            divInfoContFormat.setAttribute('class', 'info-cont format-cont');
+            const divInfoContDelete = document.createElement('div');
+            divInfoContDelete.setAttribute('class', 'info-cont delete-cont');
+        
+            //titles
+            const divTitleKey = document.createElement('div');
+            divTitleKey.setAttribute('class', 'keys title-key');
+            const divAuthorKey = document.createElement('div');
+            divAuthorKey.setAttribute('class', 'keys author-key');
+            const divYearKey = document.createElement('div');
+            divYearKey.setAttribute('class', 'keys year-key');
+            const divGenreKey = document.createElement('div');
+            divGenreKey.setAttribute('class', 'keys genre-key');
+            const divCountryKey = document.createElement('div');
+            divCountryKey.setAttribute('class', 'keys country-key');
+            const divLangKey = document.createElement('div');
+            divLangKey.setAttribute('class', 'keys lang-key');
+            const divPagesKey = document.createElement('div');
+            divPagesKey.setAttribute('class', 'keys pages-key');
+            const divStatusKey = document.createElement('div');
+            divStatusKey.setAttribute('class', 'keys status-key');
+            const divFormatKey = document.createElement('div');
+            divFormatKey.setAttribute('class', 'keys format-key');
+            const divDeleteKey = document.createElement('button');
+            divDeleteKey.setAttribute('class', 'delete-button');
+        
+            //values
+            const divTitleValue = document.createElement('div');
+            divTitleValue.setAttribute('class', 'values title-value');
+            const divAuthorValue = document.createElement('div');
+            divAuthorValue.setAttribute('class', 'values author-value');
+            const divYearValue = document.createElement('div');
+            divYearValue.setAttribute('class', 'values year-value');
+            const divGenreValue = document.createElement('div');
+            divGenreValue.setAttribute('class', 'values genre--value');
+            const divCountryValue = document.createElement('div');
+            divCountryValue.setAttribute('class', 'values country-value');
+            const divLangValue = document.createElement('div');
+            divLangValue.setAttribute('class', 'values lang-value');
+            const divPagesValue = document.createElement('div');
+            divPagesValue.setAttribute('class', 'values pages-value');
+            const divStatusValue = document.createElement('div');
+            divStatusValue.setAttribute('class', 'values status-value');
+            const divFormatValue = document.createElement('div');
+            divFormatValue.setAttribute('class', 'values format-value');
+            //const divDeleteValue = document.createElement('div');
+            //divDeleteValue.setAttribute('class', 'values delete-value');
+        
+        
+        //card                      
+        setIndex();
         divCard.setAttribute('data-index-number', `${book.arrIndex}`); //asign index for dom
                                                                     //that corresponds index for item
                                                                     //in array    
@@ -286,6 +290,10 @@ const toZero = function () { //empty all input fields
      }
  }
 ///////////////
+
+//------dry-------//
+ 
+//------dry------//
 
 formOtherCards();
 
