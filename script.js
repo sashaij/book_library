@@ -2,6 +2,33 @@
 
 //tasks
 
+//how to render existing cards
+//when page is loaded
+//and prevent double render
+//when new card is added
+//and asign/reasign indexes
+//for existing cards-objects
+//without click event call
+
+//1.
+//function must asign-update index 
+//when existing cards rendered for
+//the first time
+//2.
+//when adding new book
+//function should : 
+//reasign index
+//for existing objects,
+//BUT NOT RENDER THEM 
+//FOR THE SECOND TIME,
+//and create new book
+//push it to the array
+//and render it
+
+//now it renders all the array
+//when adding new book
+
+
 //implement status toggle
    //update status in existing 
    //object in array
@@ -255,7 +282,7 @@ const formCard = function(){
 }
 
 
-formCard(); //call to form all the books
+//formCard(); //call to form all the books
             //existing at the moment
 
 
