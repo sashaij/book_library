@@ -311,9 +311,9 @@ const toZero = function () { //empty all input fields
 
         } 
         setIndex(); //sets new index
-        for(let book of books){
-            const divCard = document.querySelectorAll('.card');
-            divCard[book.arrIndex].setAttribute('data-index-number', `${book.arrIndex}`)
+        for(let book of books){ //loop through all remaining elements and reasigns index
+            const divCard = document.querySelectorAll('.card'); //select all card elements
+            divCard[book.arrIndex].setAttribute('data-index-number', `${book.arrIndex}`) //reasign index for each
             console.log(`data-index: ${divCard[book.arrIndex].getAttribute('data-index-number')}
                         arr-index: ${book.arrIndex}`);
         }
