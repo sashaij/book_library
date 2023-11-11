@@ -35,7 +35,8 @@
    //render cards again;
 //implement delete button
     //remove item from array 
-    //render cards again;
+    //card from dom tree
+    //reasign indexes
 //and confirm popup
 
 //after book is passed to the
@@ -291,6 +292,26 @@ const toZero = function () { //empty all input fields
  }
 ///////////////
 
+
+//------del------//
+ const delButton = document.querySelector('.delete-button');
+ const divCards = document.querySelector('.cards-container');
+ const onDelete = function (e) {
+    alert('Button is clicked');
+     if(!e.target.classList.contains('delete-button')){
+         return;
+        } 
+        if (confirm("Delete this item?")) { //delete row if true
+            const btn = e.target;
+            btn.closest('div.card').remove();
+            //let selectedRow = btn.closest('div');     // select row indx and transform 
+            //let rowIndex = selectedRow.rowIndex - 1; // it into arr index
+            //books.splice(rowIndex, 1);               // remove book from arr by index                  
+            // console.log(rowIndex);               
+        } 
+    }
+    divCards.addEventListener('click', onDelete);
+//-------del------//
 //------dry-------//
  
 //------dry------//
