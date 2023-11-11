@@ -297,18 +297,61 @@ const toZero = function () { //empty all input fields
  const delButton = document.querySelector('.delete-button');
  const divCards = document.querySelector('.cards-container');
  const onDelete = function (e) {
-    alert('Button is clicked');
      if(!e.target.classList.contains('delete-button')){
          return;
         } 
         if (confirm("Delete this item?")) { //delete row if true
             const btn = e.target;
+
+            const elem = btn.closest('div.card');
+            const elemAttribute = Number(elem.getAttribute('data-index-number'));  
+            books.splice(elemAttribute, 1);         
+
             btn.closest('div.card').remove();
-            //let selectedRow = btn.closest('div');     // select row indx and transform 
-            //let rowIndex = selectedRow.rowIndex - 1; // it into arr index
-            //books.splice(rowIndex, 1);               // remove book from arr by index                  
-            // console.log(rowIndex);               
+
         } 
+        setIndex(); //sets new index
+        for(let book of books){
+            const divCard = document.querySelectorAll('.card');
+            divCard[book.arrIndex].setAttribute('data-index-number', `${book.arrIndex}`)
+            console.log(`data-index: ${divCard[book.arrIndex].getAttribute('data-index-number')}
+                        arr-index: ${book.arrIndex}`);
+        }
+
+        /* 
+                    script.js:322 Uncaught TypeError: divCard.setAttribute is not a function
+                at HTMLDivElement.onDelete (script.js:322:21)
+            onDelete @ script.js:322
+            const divCards = document.querySelectorAll('.card');
+            VM6168:1 Uncaught SyntaxError: Identifier 'divCards' has already been declared
+            const divCard = document.querySelectorAll('.card');
+            undefined
+            divCard
+            for (let book of books) {
+                divCard.setAttribute('data-index-number', 'book.arrIndex');
+            }
+            VM6606:2 Uncaught TypeError: divCard.setAttribute is not a function
+                at <anonymous>:2:13
+            (anonymous) @ VM6606:2
+            for (let book of books) {
+                divCard.setAttribute('data-index-number', `${book.arrIndex}`);
+            }
+            VM6654:2 Uncaught TypeError: divCard.setAttribute is not a function
+                at <anonymous>:2:13
+            (anonymous) @ VM6654:2
+            divCard.getAttribute('data-index-number');
+            VM6745:1 Uncaught TypeError: divCard.getAttribute is not a function
+                at <anonymous>:1:9
+            (anonymous) @ VM6745:1
+            divCard[0].getAttribute('data-index-number');
+            '1'
+            for (let book of books) {
+                divCard[book.arrIndex].setAttribute('data-index-number', `${book.arrIndex}`);
+            }
+            undefined
+            divCard[0].getAttribute('data-index-number')
+            '0'
+        */
     }
     divCards.addEventListener('click', onDelete);
 //-------del------//
