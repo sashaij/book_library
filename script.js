@@ -220,7 +220,7 @@ const toZero = function () { //empty all input fields
             divLangValue.setAttribute('class', 'values lang-value');
             const divPagesValue = document.createElement('div');
             divPagesValue.setAttribute('class', 'values pages-value');
-            const divStatusValue = document.createElement('div');
+            const divStatusValue = document.createElement('button');
             divStatusValue.setAttribute('class', 'values status-value');
             const divFormatValue = document.createElement('div');
             divFormatValue.setAttribute('class', 'values format-value');
@@ -303,6 +303,8 @@ const toggleStatus = function(e) {
         elem.innerHTML = "Read"
     }
 }
+
+
 //---------status-tog--------//
 
 
@@ -330,42 +332,9 @@ const toggleStatus = function(e) {
             console.log(`data-index: ${divCard[book.arrIndex].getAttribute('data-index-number')}
                         arr-index: ${book.arrIndex}`);
         }
-
-        /* 
-                    script.js:322 Uncaught TypeError: divCard.setAttribute is not a function
-                at HTMLDivElement.onDelete (script.js:322:21)
-            onDelete @ script.js:322
-            const divCards = document.querySelectorAll('.card');
-            VM6168:1 Uncaught SyntaxError: Identifier 'divCards' has already been declared
-            const divCard = document.querySelectorAll('.card');
-            undefined
-            divCard
-            for (let book of books) {
-                divCard.setAttribute('data-index-number', 'book.arrIndex');
-            }
-            VM6606:2 Uncaught TypeError: divCard.setAttribute is not a function
-                at <anonymous>:2:13
-            (anonymous) @ VM6606:2
-            for (let book of books) {
-                divCard.setAttribute('data-index-number', `${book.arrIndex}`);
-            }
-            VM6654:2 Uncaught TypeError: divCard.setAttribute is not a function
-                at <anonymous>:2:13
-            (anonymous) @ VM6654:2
-            divCard.getAttribute('data-index-number');
-            VM6745:1 Uncaught TypeError: divCard.getAttribute is not a function
-                at <anonymous>:1:9
-            (anonymous) @ VM6745:1
-            divCard[0].getAttribute('data-index-number');
-            '1'
-            for (let book of books) {
-                divCard[book.arrIndex].setAttribute('data-index-number', `${book.arrIndex}`);
-            }
-            undefined
-            divCard[0].getAttribute('data-index-number')
-            '0'
-        */
     }
+
+
     divCards.addEventListener('click', onDelete);
 //-------del------//
 //------dry-------//
@@ -437,7 +406,7 @@ const formCard = function(){
     divLangValue.setAttribute('class', 'values lang-value');
     const divPagesValue = document.createElement('div');
     divPagesValue.setAttribute('class', 'values pages-value');
-    const divStatusValue = document.createElement('div');
+    const divStatusValue = document.createElement('button');
     divStatusValue.setAttribute('class', 'values status-value');
     const divFormatValue = document.createElement('div');
     divFormatValue.setAttribute('class', 'values format-value');
