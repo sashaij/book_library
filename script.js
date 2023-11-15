@@ -2,50 +2,7 @@
 
 //tasks
 
-//how to render existing cards
-//when page is loaded
-//and prevent double render
-//when new card is added
-//and asign/reasign indexes
-//for existing cards-objects
-//without click event call
 
-//1.
-//function must asign-update index 
-//when existing cards rendered for
-//the first time
-//2.
-//when adding new book
-//function should : 
-//reasign index
-//for existing objects,
-//BUT NOT RENDER THEM 
-//FOR THE SECOND TIME,
-//and create new book
-//push it to the array
-//and render it
-
-//now it renders all the array
-//when adding new book
-
-
-//implement status toggle
-   //update status in existing 
-   //object in array
-   //render cards again;
-//implement delete button
-    //remove item from array 
-    //card from dom tree
-    //reasign indexes
-//and confirm popup
-
-//after book is passed to the
-//array need to get index and
-//add it as a property
-//update the property of -each object-
-//after -any- book is being deleted
-
-//try to implement local storage
 
 const bAuthor = document.getElementById('author');
 const bTitle = document.getElementById('title');
@@ -61,6 +18,18 @@ const togFormat = document.getElementsByName('format');
 const togStatus = document.getElementsByName('status');
 const cardsContainer = document.querySelector('.cards-container');
 
+//----------------------------//
+let myLibrary = {
+    myBooks: [],
+
+    set latest (book) {
+       return this.myBooks.push(book);
+    }
+}
+
+
+
+//--------------------------//
 let books = [
     {
         title: "War And Peace",
@@ -88,6 +57,13 @@ let books = [
 let format = ''; 
 let readStatusVal = '';
 let newBook; 
+
+
+myLibrary.latest = new Book (bTitle.value, bAuthor.value, 
+    bYear.value, bGenre.value, 
+    bCountry.value, bOriginalLang.value, 
+    numberOfPages.value, format, 
+    readStatusVal)
 
 function Book (title, author, year, 
     genre, country, originalLang, 
@@ -492,6 +468,7 @@ buttonSubmit.addEventListener('click', function(e){
             readStatusVal);
     formCard();
     toZero();
+    console.log(myLibrary.latest);
 }) 
 
 
