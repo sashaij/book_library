@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Library</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <body>
+        <header>My Library</header>
+        <form action="#">
+            <fieldset>
+                <legend>General info</legend>
+                    <ul>
+                        <li>
+                            <div class="form-element">
+                                <label for="title">Title</label>
+                                <input class="inp-field" type="text" name="title" id="title">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="form-element">
+                                <label for="author">Author</label>
+                                <input class="inp-field" type="text" name="author" id="author">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="form-element">
+                                <label for="year">Year</label>
+                                <input class="inp-field" type="number" name="year" id="year">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="form-element">
+                                <label for="genre">Genre</label>
+                                <input class="inp-field" type="text" name="genre" id="genre">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="form-element">
+                                <label for="country">Country</label>
+                                <input class="inp-field" type="text" name="country" id="country">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="form-element">
+                                <label for="original-lang">Original Language</label>
+                                <input class="inp-field" type="text" name="original-lang" id="original-lang">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="form-element">
+                                <label for="num-pages">Nuber of pages</label>
+                                <input class="inp-field" type="number" name="num-pages" id="num-pages">
+                            </div>
+                        </li>
+                    </ul>
+            </fieldset>
+            <fieldset>
+                <legend>Other</legend>
+                <h3>Book format</h3>
+                <div class="form-element buttons">
+                    <input type="radio" name="format" value ="Paper" id="paper">
+                    <label for="paper">Paper</label>
+                    <input type="radio" name="format" value="Ebook" id="ebook">
+                    <label for="ebook">Ebook</label>
+                </div>
+                <h3>Status</h3>
+                <div class="form-element buttons">
+                    <input type="radio" name="status" value="Read" id="read">
+                    <label for="read">Read</label>
+                    <input type="radio" name="status" value="Haven't read yet" id="not-read">
+                    <label for="not-read">Haven't read yet</label>
+                </div>
+            </fieldset>
+            <button type="submit" id="submit-button">Submit</button>
+        </form>
+        <div class="cards-container">
+           <!--  <div class="card">
+                <div class="info-cont" id="title-cont">
+                    <div class="keys">Title: </div>
+                    <div class="values titile">The Great Gatsby</div>
+                </div>
+                <div class="info-cont" id="author-cont">
+                    <div class="keys">Author: </div>
+                    <div class="values author">Scott F. Fitzgerald</div>
+                </div>
+                <div class="info-cont" id="year-cont">
+                    <div class="keys">Year: </div>
+                    <div class="values year">1921</div>
+                </div>
+                <div class="info-cont" id="genre-cont">
+                    <div class="keys">Genre: </div>
+                    <div class="values genre">Novel</div>
+                </div>
+                <div class="info-cont" id="conuntry-cont">
+                    <div class="keys">Country: </div>
+                    <div class="values country">USA</div>
+                </div>
+                <div class="info-cont" id="lang-cont">
+                    <div class="keys">Original Langugae: </div>
+                    <div class="values original-lang">English</div>
+                </div>
+                <div class="info-cont" id="pages-cont">
+                    <div class="keys">Number Of Pages: </div>
+                    <div class="values num-pages">124</div>
+                </div>
+                <div class="info-cont" id="format-cont">
+                    <div class="keys">Format: </div>
+                    <div class="values format">Ebook</div>
+                </div>
+                <div class="info-cont" id="status-cont">
+                    <div class="keys">Status: </div>
+                    <div class="values status">Read</div>
+                </div>
+                <div class="info-cont" id="delete-cont">
+                    <button class="delete-button">Delete</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="info-cont" id="title-cont">
+                    <div class="keys">Title: </div>
+                    <div class="values titile">The Great Gatsby</div>
+                </div>
+                <div class="info-cont" id="author-cont">
+                    <div class="keys">Author: </div>
+                    <div class="values author">Scott F. Fitzgerald</div>
+                </div>
+                <div class="info-cont" id="year-cont">
+                    <div class="keys">Year: </div>
+                    <div class="values year">1921</div>
+                </div>
+                <div class="info-cont" id="genre-cont">
+                    <div class="keys">Genre: </div>
+                    <div class="values genre">Novel</div>
+                </div>
+                <div class="info-cont" id="conuntry-cont">
+                    <div class="keys">Country: </div>
+                    <div class="values country">USA</div>
+                </div>
+                <div class="info-cont" id="lang-cont">
+                    <div class="keys">Original Langugae: </div>
+                    <div class="values original-lang">English</div>
+                </div>
+                <div class="info-cont" id="pages-cont">
+                    <div class="keys">Number Of Pages: </div>
+                    <div class="values num-pages">124</div>
+                </div>
+                <div class="info-cont" id="format-cont">
+                    <div class="keys">Format: </div>
+                    <div class="values format">Ebook</div>
+                </div>
+                <div class="info-cont" id="status-cont">
+                    <div class="keys">Status: </div>
+                    <div class="values status">Read</div>
+                </div>
+                <div class="info-cont" id="delete-cont">
+                    <button class="delete-button">Delete</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="info-cont" id="title-cont">
+                    <div class="keys">Title: </div>
+                    <div class="values titile">The Great Gatsby</div>
+                </div>
+                <div class="info-cont" id="author-cont">
+                    <div class="keys">Author: </div>
+                    <div class="values author">Scott F. Fitzgerald</div>
+                </div>
+                <div class="info-cont" id="year-cont">
+                    <div class="keys">Year: </div>
+                    <div class="values year">1921</div>
+                </div>
+                <div class="info-cont" id="genre-cont">
+                    <div class="keys">Genre: </div>
+                    <div class="values genre">Novel</div>
+                </div>
+                <div class="info-cont" id="conuntry-cont">
+                    <div class="keys">Country: </div>
+                    <div class="values country">USA</div>
+                </div>
+                <div class="info-cont" id="lang-cont">
+                    <div class="keys">Original Langugae: </div>
+                    <div class="values original-lang">English</div>
+                </div>
+                <div class="info-cont" id="pages-cont">
+                    <div class="keys">Number Of Pages: </div>
+                    <div class="values num-pages">124</div>
+                </div>
+                <div class="info-cont" id="format-cont">
+                    <div class="keys">Format: </div>
+                    <div class="values format">Ebook</div>
+                </div>
+                <div class="info-cont" id="status-cont">
+                    <div class="keys">Status: </div>
+                    <div class="values status">Read</div>
+                </div>
+                <div class="info-cont" id="delete-cont">
+                    <button class="delete-button">Delete</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="info-cont" id="title-cont">
+                    <div class="keys">Title: </div>
+                    <div class="values titile">The Great Gatsby</div>
+                </div>
+                <div class="info-cont" id="author-cont">
+                    <div class="keys">Author: </div>
+                    <div class="values author">Scott F. Fitzgerald</div>
+                </div>
+                <div class="info-cont" id="year-cont">
+                    <div class="keys">Year: </div>
+                    <div class="values year">1921</div>
+                </div>
+                <div class="info-cont" id="genre-cont">
+                    <div class="keys">Genre: </div>
+                    <div class="values genre">Novel</div>
+                </div>
+                <div class="info-cont" id="conuntry-cont">
+                    <div class="keys">Country: </div>
+                    <div class="values country">USA</div>
+                </div>
+                <div class="info-cont" id="lang-cont">
+                    <div class="keys">Original Langugae: </div>
+                    <div class="values original-lang">English</div>
+                </div>
+                <div class="info-cont" id="pages-cont">
+                    <div class="keys">Number Of Pages: </div>
+                    <div class="values num-pages">124</div>
+                </div>
+                <div class="info-cont" id="format-cont">
+                    <div class="keys">Format: </div>
+                    <div class="values format">Ebook</div>
+                </div>
+                <div class="info-cont" id="status-cont">
+                    <div class="keys">Status: </div>
+                    <div class="values status">Read</div>
+                </div>
+                <div class="info-cont" id="delete-cont">
+                    <button class="delete-button">Delete</button>
+                </div>
+            </div> -->
+        </div>
+    <script src="script-2.js"></script>
+</body>
+</html>
