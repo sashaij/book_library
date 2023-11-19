@@ -2,7 +2,6 @@
 
 //tasks
 
-//zero input fields 
 //immplement delete function
 
 const bAuthor = document.getElementById('author');
@@ -68,6 +67,7 @@ class App {
             this._renderBooks(book);
         }
         buttonSubmit.addEventListener('click', this.newBook.bind(this));
+        cardsContainer.addEventListener('click',this._deleteBook.bind(this));
     }
 
 
@@ -123,6 +123,7 @@ class App {
         console.log(itemIndex);
         this._renderBooks(nextBook); 
         this._emptyForm();
+        const delButton = document.querySelector('.delete-button');
     }
 
     //render new book
@@ -173,21 +174,11 @@ class App {
         `
 
         cardsContainer.insertAdjacentHTML('afterbegin', html)
-    }
 
-    /* 
-    const toZero = function () { //empty all input fields
-    bAuthor.value = '';      //set radio to first opt
-    bTitle.value = '';
-    bYear.value = null;
-    bGenre.value = '';
-    bCountry.value = '';
-    bOriginalLang.value = '';
-    numberOfPages.value = null;
-    togFormat[0].checked = true;
-    togStatus[0].checked = true;
-}
-     */
+        //delete
+
+    
+    }
 
 
     _emptyForm () {
@@ -200,6 +191,27 @@ class App {
         numberOfPages.value = null;
         togFormat[0].checked = true;
         togStatus[0].checked = true;
+    }
+
+    _deleteBook (e) {
+        if(!e.target.classList.contains('delete-button')){
+            return;
+           } 
+           if (confirm("Delete this item?")) { //delete row if true
+               const btn = e.target;
+   
+               const elem = btn.closest('div.card');
+               const elemAttribute = Number(elem.getAttribute('data-index-number'));  
+               this.books.splice(elemAttribute, 1);         
+               btn.closest('div.card').remove();
+           } 
+           setIndex(); //sets new index
+           for(let book of this.books){ //loop through all remaining elements and reasigns index
+               const divCard = document.querySelectorAll('.card'); //select all card elements
+               divCard[book.arrIndex].setAttribute('data-index-number', `${book.arrIndex}`) //reasign index for each
+               console.log(`data-index: ${divCard[book.arrIndex].getAttribute('data-index-number')}
+                           arr-index: ${book.arrIndex}`);
+           }
     }
     
 }
