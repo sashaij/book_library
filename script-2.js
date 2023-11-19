@@ -62,6 +62,9 @@ class App {
     ];
 
     constructor () {
+        for (let book of this.books) {
+            this._renderBooks(book);
+        }
         buttonSubmit.addEventListener('click', this.newBook.bind(this));
         
     }
@@ -108,10 +111,10 @@ class App {
         this.books.push(nextBook);
         console.log(nextBook);
         console.log(this.books);
-
-        this._renderBooks(nextBook);
+        this._renderBooks(nextBook); 
     }
 
+    //render new book
     _renderBooks (nextBook) {
         let html = 
         `
@@ -160,6 +163,8 @@ class App {
 
         cardsContainer.insertAdjacentHTML('afterbegin', html)
     }
+
+    
 }
 
 const app = new App();
