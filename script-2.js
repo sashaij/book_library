@@ -1,5 +1,9 @@
 'use strict'
 
+//tasks
+
+//get input from radio buttons
+
 const bAuthor = document.getElementById('author');
 const bTitle = document.getElementById('title');
 const bYear = document.getElementById('year');
@@ -32,7 +36,30 @@ class Book {
 }
 
 class App {
-    books = [];
+    books = [
+        {
+            title: "War And Peace",
+            author: "Leo Tolstoy",
+            year: "1893",
+            genre: "Novel",
+            country: "Russian Empire",
+            originalLang: "Russian",
+            bookFormat: "Paper",
+            pagesNum: 234,
+            status: "Read",
+        },
+        {
+            title: "Anna Karenina",
+            author: "Leo Tolstoy",
+            year: "1888",
+            genre: "Novel",
+            country: "Russian Empire",
+            originalLang: "Russian",
+            bookFormat: "Ebook",
+            pagesNum: 234,
+            status: "Haven't Read Yet",
+        },
+    ];
 
     constructor () {
         buttonSubmit.addEventListener('click', this.newBook.bind(this));
@@ -41,6 +68,26 @@ class App {
 
     newBook(e) {
         e.preventDefault();
+
+        let format;
+        let readStatusVal;
+
+        //format
+        let ele = document.getElementsByName('format'); //same for status
+    
+        for (let i = 0; i < ele.length; i++) {
+            if (ele[i].checked){
+                format = ele[i].value;
+            }
+        }
+        //status
+        let ele2 = document.getElementsByName('status');
+    
+        for (let i = 0; i < ele.length; i++) {
+            if (ele2[i].checked){
+                readStatusVal = ele2[i].value;
+            }
+        }
 
         let nextBook;
 
@@ -51,17 +98,36 @@ class App {
         const genre = bGenre.value;
         const country= bCountry.value;
         const language = bOriginalLang.value;
-        //const format = bFormat.value;
         const pages = numberOfPages.value;
-       // const status = readStatus.value;
+        
 
         nextBook = new Book (title, author, year, genre, country, language,
-            pages, 'format', 'status', `1`);
+            pages, format, readStatusVal, `1`);
 
         this.books.push(nextBook);
         console.log(nextBook);
         console.log(this.books);
     }
+
+/*     _getFormatValue() {    //function which defines which chbox itm checked
+        let ele = document.getElementsByName('format'); //same for status
+    
+        for (let i = 0; i < ele.length; i++) {
+            if (ele[i].checked){
+                format = ele[i].value;
+            }
+        }
+    }
+    
+    _getStatusValue() {
+        let ele = document.getElementsByName('status');
+    
+        for (let i = 0; i < ele.length; i++) {
+            if (ele[i].checked){
+                readStatusVal = ele[i].value;
+            }
+        }
+    } */
 }
 
 const app = new App();
