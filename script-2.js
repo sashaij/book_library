@@ -2,7 +2,7 @@
 
 //tasks
 
-//get input from radio buttons
+//render books on the screen
 
 const bAuthor = document.getElementById('author');
 const bTitle = document.getElementById('title');
@@ -63,6 +63,7 @@ class App {
 
     constructor () {
         buttonSubmit.addEventListener('click', this.newBook.bind(this));
+        
     }
 
 
@@ -72,15 +73,15 @@ class App {
         let format;
         let readStatusVal;
 
-        //format
-        let ele = document.getElementsByName('format'); //same for status
+        //get format value from radio button
+        let ele = document.getElementsByName('format'); 
     
         for (let i = 0; i < ele.length; i++) {
             if (ele[i].checked){
                 format = ele[i].value;
             }
         }
-        //status
+        //get status value from radio button
         let ele2 = document.getElementsByName('status');
     
         for (let i = 0; i < ele.length; i++) {
@@ -107,27 +108,58 @@ class App {
         this.books.push(nextBook);
         console.log(nextBook);
         console.log(this.books);
+
+        this._renderBooks(nextBook);
     }
 
-/*     _getFormatValue() {    //function which defines which chbox itm checked
-        let ele = document.getElementsByName('format'); //same for status
-    
-        for (let i = 0; i < ele.length; i++) {
-            if (ele[i].checked){
-                format = ele[i].value;
-            }
-        }
+    _renderBooks (nextBook) {
+        let html = 
+        `
+        <div class="card">
+                <div class="info-cont" id="title-cont">
+                    <div class="keys">Title: </div>
+                    <div class="values titile">${nextBook.title}</div>
+                </div>
+                <div class="info-cont" id="author-cont">
+                    <div class="keys">Author: </div>
+                    <div class="values author">${nextBook.author}</div>
+                </div>
+                <div class="info-cont" id="year-cont">
+                    <div class="keys">Year: </div>
+                    <div class="values year">${nextBook.year}</div>
+                </div>
+                <div class="info-cont" id="genre-cont">
+                    <div class="keys">Genre: </div>
+                    <div class="values genre">${nextBook.genre}</div>
+                </div>
+                <div class="info-cont" id="conuntry-cont">
+                    <div class="keys">Country: </div>
+                    <div class="values country">${nextBook.country}</div>
+                </div>
+                <div class="info-cont" id="lang-cont">
+                    <div class="keys">Original Langugae: </div>
+                    <div class="values original-lang">${nextBook.originalLang}</div>
+                </div>
+                <div class="info-cont" id="pages-cont">
+                    <div class="keys">Number Of Pages: </div>
+                    <div class="values num-pages">${nextBook.pagesNum}</div>
+                </div>
+                <div class="info-cont" id="format-cont">
+                    <div class="keys">Format: </div>
+                    <div class="values format">${nextBook.bookFormat}</div>
+                </div>
+                <div class="info-cont" id="status-cont">
+                    <div class="keys">Status: </div>
+                    <div class="values status">${nextBook.status}</div>
+                </div>
+                <div class="info-cont" id="delete-cont">
+                    <button class="delete-button">Delete</button>
+                </div>
+         </div>
+        `
+
+        cardsContainer.insertAdjacentHTML('afterbegin', html)
     }
-    
-    _getStatusValue() {
-        let ele = document.getElementsByName('status');
-    
-        for (let i = 0; i < ele.length; i++) {
-            if (ele[i].checked){
-                readStatusVal = ele[i].value;
-            }
-        }
-    } */
 }
 
 const app = new App();
