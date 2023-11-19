@@ -2,7 +2,8 @@
 
 //tasks
 
-
+//zero input fields 
+//immplement delete function
 
 const bAuthor = document.getElementById('author');
 const bTitle = document.getElementById('title');

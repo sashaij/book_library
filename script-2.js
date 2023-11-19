@@ -2,6 +2,8 @@
 
 //tasks
 
+//zero input fields 
+//immplement delete function
 
 const bAuthor = document.getElementById('author');
 const bTitle = document.getElementById('title');
@@ -120,6 +122,7 @@ class App {
         console.log(this.books);
         console.log(itemIndex);
         this._renderBooks(nextBook); 
+        this._emptyForm();
     }
 
     //render new book
@@ -172,6 +175,32 @@ class App {
         cardsContainer.insertAdjacentHTML('afterbegin', html)
     }
 
+    /* 
+    const toZero = function () { //empty all input fields
+    bAuthor.value = '';      //set radio to first opt
+    bTitle.value = '';
+    bYear.value = null;
+    bGenre.value = '';
+    bCountry.value = '';
+    bOriginalLang.value = '';
+    numberOfPages.value = null;
+    togFormat[0].checked = true;
+    togStatus[0].checked = true;
+}
+     */
+
+
+    _emptyForm () {
+        bAuthor.value = '';      //set radio to first opt
+        bTitle.value = '';
+        bYear.value = null;
+        bGenre.value = '';
+        bCountry.value = '';
+        bOriginalLang.value = '';
+        numberOfPages.value = null;
+        togFormat[0].checked = true;
+        togStatus[0].checked = true;
+    }
     
 }
 
