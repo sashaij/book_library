@@ -2,7 +2,7 @@
 
 //tasks
 
-//immplement delete function
+//check if reasign is correct, fix if needed 215-221
 
 const bAuthor = document.getElementById('author');
 const bTitle = document.getElementById('title');
@@ -36,6 +36,8 @@ class Book {
 }
 
 class App {
+    itemIndex;
+    divCard; //var for card elements
     books = [
         {
             title: "War And Peace",
@@ -66,10 +68,17 @@ class App {
         for (let book of this.books) {
             this._renderBooks(book);
         }
+        this.divCard = document.querySelectorAll('.card'); //select all card elements
         buttonSubmit.addEventListener('click', this.newBook.bind(this));
         cardsContainer.addEventListener('click',this._deleteBook.bind(this));
     }
 
+    _setIndex () {
+        for (let i = 0; i < this.books.length; i++) {
+            this.books[i].arrIndex = this.itemIndex = i + 1;           //assign or update index for every
+        }  
+        console.log(this.itemIndex);
+    }
 
     newBook(e) {
         e.preventDefault();
@@ -110,17 +119,14 @@ class App {
         const pages = numberOfPages.value;
 
         //set index 
-        for (let i = 0; i < this.books.length; i++) {
-            itemIndex = i + 1;           //assign or update index for every
-        }  
+        this._setIndex();
 
         nextBook = new Book (title, author, year, genre, country, language,
-            pages, format, readStatusVal, itemIndex);
+            pages, format, readStatusVal, this.itemIndex);
 
         this.books.push(nextBook);
         console.log(nextBook);
         console.log(this.books);
-        console.log(itemIndex);
         this._renderBooks(nextBook); 
         this._emptyForm();
         const delButton = document.querySelector('.delete-button');
@@ -205,12 +211,13 @@ class App {
                this.books.splice(elemAttribute, 1);         
                btn.closest('div.card').remove();
            } 
-           setIndex(); //sets new index
+           this._setIndex(); //sets new index
            for(let book of this.books){ //loop through all remaining elements and reasigns index
-               const divCard = document.querySelectorAll('.card'); //select all card elements
-               divCard[book.arrIndex].setAttribute('data-index-number', `${book.arrIndex}`) //reasign index for each
-               console.log(`data-index: ${divCard[book.arrIndex].getAttribute('data-index-number')}
-                           arr-index: ${book.arrIndex}`);
+                console.log(book.arrIndex);
+                console.log('card: ' + this.divCard[0]);
+               this.divCard[book.arrIndex].setAttribute('data-index-number', `${book.arrIndex}`) //reasign index for each
+               console.log(`data-index: ${this.divCard[book.arrIndex].getAttribute('data-index-number')}
+                          arr-index: ${book.arrIndex}`);
            }
     }
     
