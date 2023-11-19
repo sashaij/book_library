@@ -2,7 +2,6 @@
 
 //tasks
 
-//render books on the screen
 
 const bAuthor = document.getElementById('author');
 const bTitle = document.getElementById('title');
@@ -62,11 +61,11 @@ class App {
     ];
 
     constructor () {
+        //render existing books rendering
         for (let book of this.books) {
             this._renderBooks(book);
         }
         buttonSubmit.addEventListener('click', this.newBook.bind(this));
-        
     }
 
 
@@ -75,6 +74,7 @@ class App {
 
         let format;
         let readStatusVal;
+        let itemIndex;
 
         //get format value from radio button
         let ele = document.getElementsByName('format'); 
@@ -93,6 +93,9 @@ class App {
             }
         }
 
+        
+          
+
         let nextBook;
 
         //get input values
@@ -103,14 +106,19 @@ class App {
         const country= bCountry.value;
         const language = bOriginalLang.value;
         const pages = numberOfPages.value;
-        
+
+        //set index 
+        for (let i = 0; i < this.books.length; i++) {
+            itemIndex = i + 1;           //assign or update index for every
+        }  
 
         nextBook = new Book (title, author, year, genre, country, language,
-            pages, format, readStatusVal, `1`);
+            pages, format, readStatusVal, itemIndex);
 
         this.books.push(nextBook);
         console.log(nextBook);
         console.log(this.books);
+        console.log(itemIndex);
         this._renderBooks(nextBook); 
     }
 
@@ -118,7 +126,7 @@ class App {
     _renderBooks (nextBook) {
         let html = 
         `
-        <div class="card">
+        <div class="card" data-index-number='${nextBook.arrIndex}'>
                 <div class="info-cont" id="title-cont">
                     <div class="keys">Title: </div>
                     <div class="values titile">${nextBook.title}</div>
