@@ -1,7 +1,7 @@
 'use strict'
 
 //tasks
-
+//set data-index when first rendering cards
 //check if reasign is correct, fix if needed 215-221
 
 const bAuthor = document.getElementById('author');
@@ -39,7 +39,7 @@ class App {
     itemIndex;
     divCard; //var for card elements
     books = [
-        {
+        {   arrIndex: 0,
             title: "War And Peace",
             author: "Leo Tolstoy",
             year: "1893",
@@ -50,7 +50,8 @@ class App {
             pagesNum: 234,
             status: "Read",
         },
-        {
+        {   
+            arrIndex: 1,
             title: "Anna Karenina",
             author: "Leo Tolstoy",
             year: "1888",
@@ -77,7 +78,7 @@ class App {
         for (let i = 0; i < this.books.length; i++) {
             this.books[i].arrIndex = this.itemIndex = i + 1;           //assign or update index for every
         }  
-        console.log(this.itemIndex);
+        console.log('item-index: ' + this.itemIndex);
     }
 
     newBook(e) {
@@ -171,7 +172,7 @@ class App {
                 </div>
                 <div class="info-cont" id="status-cont">
                     <div class="keys">Status: </div>
-                    <div class="values status">${nextBook.status}</div>
+                    <button class="values status">${nextBook.status}</button>
                 </div>
                 <div class="info-cont" id="delete-cont">
                     <button class="delete-button">Delete</button>
@@ -211,15 +212,35 @@ class App {
                this.books.splice(elemAttribute, 1);         
                btn.closest('div.card').remove();
            } 
-           this._setIndex(); //sets new index
-           for(let book of this.books){ //loop through all remaining elements and reasigns index
-                console.log(book.arrIndex);
+           //this._setIndex(); //sets new index
+           for(let i=0; i<this.books.length; i++) {
+            console.log('arrIndex_del: ' + this.books[i].arrIndex);
+            console.log('data-index_del: ' + this.divCard[i].getAttribute('data-index-number'));
+
+            /* this.books[i].arrIndex = i; 
+            console.log(this.books[i].arrIndex);
+            this.divCard[this.books.length - i].setAttribute('data-index-number', `${this.books[i].arrIndex}`); */
+            }
+           /* for(let book of this.books){ //loop through all remaining elements and reasigns index
+                console.log('arrIndex: ' + book.arrIndex);
                 console.log('card: ' + this.divCard[0]);
-               this.divCard[book.arrIndex].setAttribute('data-index-number', `${book.arrIndex}`) //reasign index for each
+               this.divCard[book.arrIndex - 1].setAttribute('data-index-number', `${book.arrIndex - 1}`) //reasign index for each
                console.log(`data-index: ${this.divCard[book.arrIndex].getAttribute('data-index-number')}
-                          arr-index: ${book.arrIndex}`);
-           }
+                            arr-index: ${book.arrIndex}`);
+           } */
     }
+
+/*
+        for(i=0; i<app.books.length; i++) {app.books[i].arrIndex = i; console.log(app.books[i].arrIndex)}
+        VM3619:1 0
+        undefined
+        app.divCard[0];
+        for (i=0; i<app.books.length; i++) {app.divCard[i].setAttribute('data-index-number', `${i}`)}
+        undefined
+﻿
+
+
+    */
     
 }
 
