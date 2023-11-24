@@ -205,10 +205,12 @@ class App {
            } else {  
             const btn = e.target;
             const elem = btn.closest('button.status');
-            if (elem.innerHTML === 'Read') {
-                elem.innerHTML = "Haven't read yet"
+            const elemIndex = btn.closest('div.card');
+            const indexAttribute = Number(elemIndex.getAttribute('data-index-number'))
+            if (elem.innerHTML === 'Read') { //asign new status for dom and obj
+                elem.innerHTML = this.books[indexAttribute].status = "Haven't read yet" 
             } else if (elem.innerHTML === "Haven't read yet") {
-                elem.innerHTML = "Read";
+                elem.innerHTML = this.books[indexAttribute].status = "Read";
             }
             }
     }
