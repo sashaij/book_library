@@ -178,10 +178,16 @@ class App {
                 </div>
          </div>
         `
-
+      
         cardsContainer.insertAdjacentHTML('afterbegin', html)
 
         this.divCard = document.querySelectorAll('.card');
+        let statusField = document.querySelector('.status');
+        if (nextBook.status === 'Read') {
+            statusField.style.backgroundColor = '#9ADE7B';
+        } else if (nextBook.status === "Haven't read yet") {
+            statusField.style.backgroundColor = '#FF8F8F';
+        }
 
     
     }
