@@ -10,6 +10,9 @@
 /*
 -- general --
 
+-display status color when existing 
+books are being rendered
+
 - implement grid form above 
 book cards in mobile-first
 - in fullscreen it goes form
@@ -169,6 +172,26 @@ legend {
     justify-content: space-between;
     align-items: center;
     padding: 5px;
+}
+
+#delete-cont {
+    justify-content: center;
+    border: 5px;
+}
+
+.delete-button {
+    font-size: 1rem;
+    padding: 10px 15px;
+}
+
+#status-cont {
+    width: 100%;
+}
+
+button.status {
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--highlight);
 }
 
 #submit-button {

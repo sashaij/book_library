@@ -208,9 +208,11 @@ class App {
             const elemIndex = btn.closest('div.card');
             const indexAttribute = Number(elemIndex.getAttribute('data-index-number'))
             if (elem.innerHTML === 'Read') { //asign new status for dom and obj
-                elem.innerHTML = this.books[indexAttribute].status = "Haven't read yet" 
+                elem.innerHTML = this.books[indexAttribute].status = "Haven't read yet";
+                elem.style.backgroundColor = '#FF8F8F'; 
             } else if (elem.innerHTML === "Haven't read yet") {
                 elem.innerHTML = this.books[indexAttribute].status = "Read";
+                elem.style.backgroundColor = '#9ADE7B'; 
             }
             }
     }
