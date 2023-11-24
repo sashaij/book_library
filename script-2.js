@@ -4,6 +4,9 @@
 //reasign index when deleting cards
  //figure out how to reasign itemIndex correctly
 
+ //reasign goes now from top to bottom and
+ //does not affect top (latest) input
+
 const bAuthor = document.getElementById('author');
 const bTitle = document.getElementById('title');
 const bYear = document.getElementById('year');
@@ -185,7 +188,7 @@ class App {
 
         cardsContainer.insertAdjacentHTML('afterbegin', html)
 
-        //delete
+        this.divCard = document.querySelectorAll('.card');
 
     
     }
@@ -215,10 +218,12 @@ class App {
                this.books.splice(elemAttribute, 1);         
                btn.closest('div.card').remove();
            } 
+
+           this.divCard = document.querySelectorAll('.card');
            //this._setIndex(); //sets new index
             for (let book of this.books) {
                 this.itemIndex = this.books.indexOf(book)
-                this.divCard[this.itemIndex].setAttribute('data-index-number', `${this.itemIndex}`)
+                this.divCard[this.divCard.length - this.itemIndex - 1].setAttribute('data-index-number', `${this.itemIndex}`)
             }
            /* for(let book of this.books){ //loop through all remaining elements and reasigns index
                 console.log('arrIndex: ' + book.arrIndex);
