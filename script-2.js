@@ -1,11 +1,7 @@
 'use strict'
 
-//tasks
-//reasign index when deleting cards
- //figure out how to reasign itemIndex correctly
-
- //reasign goes now from top to bottom and
- //does not affect top (latest) input
+//tasks 
+//implement toggle status
 
 const bAuthor = document.getElementById('author');
 const bTitle = document.getElementById('title');
@@ -62,7 +58,7 @@ class App {
             originalLang: "Russian",
             bookFormat: "Ebook",
             pagesNum: 234,
-            status: "Haven't Read Yet",
+            status: "Haven't read yet",
         },
     ];
 
@@ -72,6 +68,7 @@ class App {
         this.divCard = document.querySelectorAll('.card'); //select all card elements
         buttonSubmit.addEventListener('click', this.newBook.bind(this));
         cardsContainer.addEventListener('click',this._deleteBook.bind(this));
+        cardsContainer.addEventListener('click', this._toggleStatus.bind(this));
     }
 
     _setIndex () {
@@ -132,10 +129,6 @@ class App {
         console.log(this.books);
         this._renderBooks(nextBook); 
         this._emptyForm();
-/*         for (let book of this.books) {
-            this.itemIndex = this.books.indexOf(book);
-            this.divCard[this.itemIndex].setAttribute('data-index-number', `${this.itemIndex}`);
-        } */
         const delButton = document.querySelector('.delete-button');
     }
 
@@ -206,6 +199,20 @@ class App {
         togStatus[0].checked = true;
     }
 
+    _toggleStatus (e) {
+        if(!e.target.classList.contains('status')){
+            return;
+           } else {  
+            const btn = e.target;
+            const elem = btn.closest('button.status');
+            if (elem.innerHTML === 'Read') {
+                elem.innerHTML = "Haven't read yet"
+            } else if (elem.innerHTML === "Haven't read yet") {
+                elem.innerHTML = "Read";
+            }
+            }
+    }
+
     _deleteBook (e) {
         if(!e.target.classList.contains('delete-button')){
             return;
@@ -220,32 +227,13 @@ class App {
            } 
 
            this.divCard = document.querySelectorAll('.card');
-           //this._setIndex(); //sets new index
+           //sets new index
             for (let book of this.books) {
                 this.itemIndex = this.books.indexOf(book)
                 this.divCard[this.divCard.length - this.itemIndex - 1].setAttribute('data-index-number', `${this.itemIndex}`)
             }
-           /* for(let book of this.books){ //loop through all remaining elements and reasigns index
-                console.log('arrIndex: ' + book.arrIndex);
-                console.log('card: ' + this.divCard[0]);
-               this.divCard[book.arrIndex - 1].setAttribute('data-index-number', `${book.arrIndex - 1}`) //reasign index for each
-               console.log(`data-index: ${this.divCard[book.arrIndex].getAttribute('data-index-number')}
-                            arr-index: ${book.arrIndex}`);
-           } */
+          
     }
-
-/*
-        for(i=0; i<app.books.length; i++) {app.books[i].arrIndex = i; console.log(app.books[i].arrIndex)}
-        VM3619:1 0
-        undefined
-        app.divCard[0];
-        for (i=0; i<app.books.length; i++) {app.divCard[i].setAttribute('data-index-number', `${i}`)}
-        undefined
-﻿
-
-
-    */
-    
 }
 
 const app = new App();
